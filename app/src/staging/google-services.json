@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "785676575254",
+    "firebase_url": "https://picsquiz2-staging.firebaseio.com",
+    "project_id": "picsquiz2-staging",
+    "storage_bucket": "picsquiz2-staging.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785676575254:android:917056e35c669c7d8e4b37",
+        "android_client_info": {
+          "package_name": "com.pics.quiz.sta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785676575254-hg9rl44s361uu45ahsnrneu6idhab7l5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtuUgrFhjTxi3oFFZ07dU2dzr111m-Sto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785676575254-hg9rl44s361uu45ahsnrneu6idhab7l5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785676575254:android:8bb75d84aad9bc028e4b37",
+        "android_client_info": {
+          "package_name": "pics.quiz2.guess.trivia.sta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785676575254-hg9rl44s361uu45ahsnrneu6idhab7l5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtuUgrFhjTxi3oFFZ07dU2dzr111m-Sto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785676575254-hg9rl44s361uu45ahsnrneu6idhab7l5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

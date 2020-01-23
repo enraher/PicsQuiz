@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "640300835565",
+    "firebase_url": "https://picsquiz2-pro.firebaseio.com",
+    "project_id": "picsquiz2-pro",
+    "storage_bucket": "picsquiz2-pro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640300835565:android:d37c508a320cc4aa3f62e4",
+        "android_client_info": {
+          "package_name": "com.pics.quiz.pro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "640300835565-v62h786tbfgjdsm7gq2hi6j1h0cm303m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP8WQbb2y1MURFFbC9g8dsTfHQS6gCjjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "640300835565-v62h786tbfgjdsm7gq2hi6j1h0cm303m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
