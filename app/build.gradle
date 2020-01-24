@@ -28,15 +28,15 @@ android {
     productFlavors {
         development {
             applicationIdSuffix ".dev"
-            buildConfigField "String", "API_BASE_URL", '"https://www.development-baseurl.com/api/v1/"'
+            buildConfigField "String", "BASE_URL", '"https://www.development-baseurl.com/api/v1/"'
         }
         staging {
             applicationIdSuffix ".sta"
-            buildConfigField "String", "API_BASE_URL", '"https://www.staging-baseurl.com/api/v1/"'
+            buildConfigField "String", "BASE_URL", '"https://www.staging-baseurl.com/api/v1/"'
         }
         production {
             applicationIdSuffix ".pro"
-            buildConfigField "String", "API_BASE_URL", '"https://www.baseurl.com/api/v1/"'
+            buildConfigField "String", "BASE_URL", '"https://www.baseurl.com/api/v1/"'
         }
     }
 }
