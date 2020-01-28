@@ -2,5 +2,6 @@
 <resources>
     <string name="channel_name" translatable="false">Default notifications</string>
     <string name="channel_desc" translatable="false">Default notifications that open the app</string>
+    <string name="copyright" translatable="false">Copyright 2020 Enrasoft Games, Inc.</string>
 
 </resources>

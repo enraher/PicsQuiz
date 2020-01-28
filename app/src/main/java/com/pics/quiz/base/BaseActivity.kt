@@ -1,9 +1,16 @@
 package com.pics.quiz.base
 
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.content.ServiceConnection
 import android.os.Bundle
+import android.os.IBinder
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.pics.quiz.other.BackgroundSoundService
+import com.pics.quiz.repositories.PreferencesManager
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -12,6 +19,8 @@ import java.lang.reflect.ParameterizedType
 
 abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
     lateinit var viewModel: VM
+
+    private var isMusicServiceBounded = false
 
     @Suppress("UNCHECKED_CAST")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,5 +50,55 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
 
     open fun showToast(resource: Int) {
         Toast.makeText(this, resource, Toast.LENGTH_LONG).show()
+    }
+
+    private var mBoundService: BackgroundSoundService? = null
+
+    private val mConnection = object : ServiceConnection {
+        override fun onServiceConnected(className: ComponentName, service: IBinder) {
+            mBoundService = (service as BackgroundSoundService.LocalBinder).service
+        }
+
+        override fun onServiceDisconnected(className: ComponentName) {
+            mBoundService = null
+
+        }
+    }
+
+    protected fun stopSoundService() {
+        mBoundService?.stopPlayer()
+    }
+
+    protected fun startSoundService() {
+        PreferencesManager(this).musicOn = true
+        bindSoundService()
+        mBoundService.let { it?.startPlayer() }
+    }
+
+    private fun bindSoundService() {
+        if(PreferencesManager(this).musicOn) {
+            val svc = Intent(this, BackgroundSoundService::class.java)
+            bindService(svc, mConnection, Context.BIND_AUTO_CREATE)
+            isMusicServiceBounded = true
+        }
+    }
+
+    fun unbindSoundService() {
+        if(PreferencesManager(this).musicOn) {
+            if (isMusicServiceBounded) {
+                unbindService(mConnection)
+                isMusicServiceBounded = false
+            }
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        unbindSoundService()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        bindSoundService()
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape>
+            <stroke android:color="@color/main_button_down" android:width="@dimen/width_stroke"/>
+            <corners android:radius="@dimen/corner_radius" />
+        </shape>
+    </item>
+
+    <item android:bottom="@dimen/width_stroke">
+        <shape>
+            <solid android:color="@color/main_button" />
+            <corners android:radius="@dimen/corner_radius" />
+
+        </shape>
+    </item>
+
+</layer-list>

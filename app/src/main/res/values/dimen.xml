@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="corner_radius">18dp</dimen>
+    <dimen name="width_stroke">3dp</dimen>
+    <dimen name="dialog_bar">25dp</dimen>
+    <dimen name="cards_corner_radius">15dp</dimen>
+    <dimen name="margin_cards">16dp</dimen>
+    <dimen name="margin_btns_game">2dp</dimen>
+    <dimen name="txt_solve_size">30dp</dimen>
+    <dimen name="padding_cover_card">40dp</dimen>
+    <dimen name="elevation_star">3dp</dimen>
+    <dimen name="margin_solved_even">2dp</dimen>
+    <dimen name="margin_solved_odd">40dp</dimen>
+    <dimen name="padding_bottom_recycler">30dp</dimen>
+
+
+</resources>

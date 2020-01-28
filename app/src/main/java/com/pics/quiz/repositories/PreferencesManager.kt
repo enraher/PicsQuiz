@@ -17,6 +17,8 @@ class PreferencesManager(context: Context) {
         PreferenceManager.getDefaultSharedPreferences(context.applicationContext)
     var pushToken by PreferenceFieldDelegate.String(KEY_PUSH_TOKEN)
     var authToken by PreferenceFieldDelegate.String(KEY_AUTH_TOKEN)
+    var musicOn by PreferenceFieldDelegate.Boolean(KEY_SOUND_ON)
+
     private var userJson by PreferenceFieldDelegate.String(KEY_USER)
 
     var user: User?
@@ -84,6 +86,7 @@ class PreferencesManager(context: Context) {
     companion object {
         private const val KEY_PUSH_TOKEN = "push_token"
         private const val KEY_AUTH_TOKEN = "auth_token"
+        private const val KEY_SOUND_ON = "sound_on"
         private const val KEY_USER = "user"
     }
 }

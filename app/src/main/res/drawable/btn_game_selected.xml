@@ -1,0 +1,8 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+
+   <solid android:color="@color/bg_color_btns_game_selected"/>
+
+    <corners android:radius="@dimen/margin_btns_game" />
+
+</shape>

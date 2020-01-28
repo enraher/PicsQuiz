@@ -11,9 +11,13 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.pics.quiz.MainActivity
 import com.pics.quiz.R
+import com.pics.quiz.modules.splash.SplashActivity
 import com.pics.quiz.repositories.PreferencesManager
+
+/**
+ * Created by enrasoft on 24/1/20.
+ */
 
 class FirebaseMessagingServiceHelper : FirebaseMessagingService() {
 
@@ -41,7 +45,7 @@ class FirebaseMessagingServiceHelper : FirebaseMessagingService() {
             notificationMgr.createNotificationChannel(mChannel)
         }
 
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, SplashActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
 
