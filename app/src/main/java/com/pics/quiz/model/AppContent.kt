@@ -3,9 +3,9 @@ package com.pics.quiz.model
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-class Packages (
+class AppContent (
     @SerializedName("file_images_packages") val fileImages: String?,
-    @SerializedName("languages_available") val languagesAvailable: List<Language>,
+    @SerializedName("languages_available") val languagesAvailable: ArrayList<Language>,
     val packages: ArrayList<Package>
     ) : Serializable {
 

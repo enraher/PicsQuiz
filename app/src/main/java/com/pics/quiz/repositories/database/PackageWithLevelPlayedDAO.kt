@@ -2,14 +2,18 @@ package com.pics.quiz.repositories.database
 
 import androidx.room.*
 import com.pics.quiz.model.database.PackagePlayed
-import com.pics.quiz.model.database.PackageWithLevelPlayed
+import com.pics.quiz.model.database.PackageWithLevelsPlayed
 
 
 @Dao
 interface PackageWithLevelPlayedDAO {
     @Transaction
     @Query("SELECT * FROM ${PackagePlayed.TABLE_NAME} WHERE ${PackagePlayed.ID} = :packageId")
-    fun getPackagesWithLevelsPlayed(packageId: String): List<PackageWithLevelPlayed?>?
+    fun getPackageWithLevelsPlayed(packageId: String): PackageWithLevelsPlayed
+
+    @Transaction
+    @Query("SELECT * FROM ${PackagePlayed.TABLE_NAME}")
+    fun getPackagesWithLevelsPlayed(): List<PackageWithLevelsPlayed>?
 
 //    @Insert(onConflict = OnConflictStrategy.REPLACE)
 //    fun insertAll(vararg note: PackagePlayed): LongArray

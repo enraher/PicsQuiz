@@ -20,7 +20,7 @@ object FileAccessRepository {
 
     fun checkIfImageFilesExist(context: Context, dirToCheck: String): Boolean {
         val dir = File(context.filesDir, dirToCheck)
-        return (dir.exists() && dir.listFiles().isNotEmpty())
+        return (dir.exists() && dir.listFiles()?.isNotEmpty() == true)
     }
 
     fun unzip(context: Context, zipFile: File) {
@@ -29,7 +29,7 @@ object FileAccessRepository {
         while (enumeration.hasMoreElements()) {
             val entry = enumeration.nextElement()
             val destFilePath = File(context.filesDir, entry.name)
-            destFilePath.parentFile.mkdirs()
+            destFilePath.parentFile?.mkdirs()
 
             if (entry.isDirectory)
                 continue

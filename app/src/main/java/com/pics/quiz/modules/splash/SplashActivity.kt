@@ -8,6 +8,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import com.pics.flubber.Flubber
 import com.pics.flubber.Flubber.Preset
 import com.pics.flubber.Flubber.Curve
 import com.pics.quiz.extensions.anim
@@ -26,20 +27,23 @@ class SplashActivity : BaseActivity<SplashViewModel>(), GenericDialog.GenericDia
     override val layoutResId: Int
         get() = R.layout.activity_splash
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        containerSplashLayout.systemUiVisibility = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            (View.SYSTEM_UI_FLAG_LOW_PROFILE or View.SYSTEM_UI_FLAG_FULLSCREEN
-                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
-        } else {
-            (View.SYSTEM_UI_FLAG_LOW_PROFILE or View.SYSTEM_UI_FLAG_FULLSCREEN
-                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
-        }
-    }
-
     override fun setViews() {
+
+        viewModel.initGame.observe(this, Observer { shouldInitGame ->
+            if(shouldInitGame && viewModel.appContentLoaded && viewModel.animsFinished) {
+                prgBarLoadGame.setProgress(1)
+                prgBarLoadGame.anim(Preset.SQUEEZE_OUT_DOWN, Curve.BZR_EASE_IN_OUT_SINE, 1000, 500) {
+                    prgBarLoadGame.visibility = View.INVISIBLE
+                    imgIconApp_1.anim(Preset.FADE_OUT, Curve.BZR_EASE_IN_OUT_SINE, 1000)
+                    imgIconApp_2.anim(Preset.FADE_OUT, Curve.BZR_EASE_IN_OUT_SINE, 1000)
+                    txtTitleApp.anim(Preset.FADE_OUT, Curve.BZR_EASE_IN_OUT_SINE, 1000)
+                    ly_bottom.anim(Preset.SQUEEZE_OUT_DOWN, Curve.BZR_EASE_IN_OUT_SINE, 1000, 200) {
+                        Navigator.startMenuActivity(this)
+                    }
+                }
+            }
+        })
+
         viewModel.progress.observe(this, Observer { progress ->
             prgBarLoadGame.setProgress(progress)
         })
@@ -87,19 +91,17 @@ class SplashActivity : BaseActivity<SplashViewModel>(), GenericDialog.GenericDia
         txtTitleApp.visibility = View.GONE
 
         imgIconApp_1.anim(
-            Preset.ZOOM_IN, Curve.BZR_EASE_OUT_SINE, 500, 2000) {
+            Preset.ZOOM_IN, Curve.BZR_EASE_OUT_SINE, 500, 500) {
             imgIconApp_2.anim(Preset.ZOOM_IN, Curve.BZR_EASE_OUT_SINE, 500) {
                 txtTitleApp.visibility = View.VISIBLE
-                txtTitleApp.anim(Preset.FADE_IN, Curve.BZR_EASE_OUT_SINE, 500)
+                txtTitleApp.anim(Preset.FADE_IN, Curve.BZR_EASE_OUT_SINE, 500) {
+                    viewModel.animsFinished()
+                }
             }
         }
 
         viewModel.getAppVersion()
     }
-
-
-
-
 
     override fun onGenericDialogRightClicked(_tag: String) {
         when(_tag) {

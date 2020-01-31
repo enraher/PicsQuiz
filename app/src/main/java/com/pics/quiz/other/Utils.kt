@@ -1,12 +1,9 @@
 package com.pics.quiz.other
 
 import android.content.Context
-import android.util.Log
-import com.google.gson.Gson
-import com.pics.quiz.other.MyApplication.Companion.crashReport
-import java.io.BufferedReader
-import java.io.File
+import com.pics.quiz.repositories.PreferencesManager
 import java.net.InetAddress
+import java.util.*
 
 /**
  * Created by enrasoft on 24/1/20.
@@ -17,7 +14,7 @@ fun getResId(resName: String, context: Context): Int? {
         context.resources.getIdentifier(resName, "drawable", context.packageName)
     } catch (e: Exception) {
         e.printStackTrace()
-        crashReport(e)
+        ReportManager.getInstance(context).crashReport(e)
         null
     }
 }
@@ -32,7 +29,13 @@ fun isInternetAvailable(): Boolean {
     }
 }
 
-
+fun getCurrentLanguage(context: Context?): String {
+    return if(context != null && PreferencesManager(context).languageSelected != "") {
+        PreferencesManager(context).languageSelected
+    } else {
+        Locale.getDefault().language
+    }
+}
 
 
 

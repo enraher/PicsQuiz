@@ -5,7 +5,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.pics.quiz.model.Version
-import com.pics.quiz.other.MyApplication.Companion.crashReport
+import com.pics.quiz.other.ReportManager
 import java.io.File
 
 object FirebaseRepository {
@@ -36,7 +36,7 @@ object FirebaseRepository {
             pathReference.getFile(file).addOnSuccessListener {
                  listener(file)
             }.addOnFailureListener { exception ->
-                crashReport(exception)
+                ReportManager.getInstance(context).crashReport(exception)
                  listener(null)
             }
     }

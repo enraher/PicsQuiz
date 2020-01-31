@@ -15,11 +15,12 @@ import kotlin.reflect.KProperty
 class PreferencesManager(context: Context) {
     private val preferences =
         PreferenceManager.getDefaultSharedPreferences(context.applicationContext)
-    var pushToken by PreferenceFieldDelegate.String(KEY_PUSH_TOKEN)
-    var authToken by PreferenceFieldDelegate.String(KEY_AUTH_TOKEN)
-    var musicOn by PreferenceFieldDelegate.Boolean(KEY_SOUND_ON)
+    var pushToken by PreferenceFieldDelegate.String("push_token")
+    var authToken by PreferenceFieldDelegate.String("auth_token")
+    var musicOn by PreferenceFieldDelegate.Boolean("KEY_SOUND_ON")
+    var languageSelected by PreferenceFieldDelegate.String("languageSelected")
 
-    private var userJson by PreferenceFieldDelegate.String(KEY_USER)
+    private var userJson by PreferenceFieldDelegate.String("user")
 
     var user: User?
         get() {
@@ -81,13 +82,6 @@ class PreferencesManager(context: Context) {
     fun clearSessionData() {
         authToken = ""
         user = null
-    }
-
-    companion object {
-        private const val KEY_PUSH_TOKEN = "push_token"
-        private const val KEY_AUTH_TOKEN = "auth_token"
-        private const val KEY_SOUND_ON = "sound_on"
-        private const val KEY_USER = "user"
     }
 }
 

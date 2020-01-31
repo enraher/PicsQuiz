@@ -9,7 +9,7 @@ import com.pics.quiz.model.database.LevelPlayed
 import com.pics.quiz.model.database.PackagePlayed
 import com.pics.quiz.repositories.LevelPlayedDAO
 
-@Database(entities = [PackagePlayed::class, LevelPlayed::class], version = 2)
+@Database(entities = [PackagePlayed::class, LevelPlayed::class], version = 3)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 

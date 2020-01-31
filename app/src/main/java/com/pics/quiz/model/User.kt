@@ -1,8 +1,6 @@
 package com.pics.quiz.model
 
-import android.content.Context
 import com.pics.quiz.other.Constants
-import com.pics.quiz.repositories.PreferencesManager
 import java.io.Serializable
 
 data class User(

@@ -71,7 +71,7 @@ public class BackgroundSoundService extends Service {
             });
             player.prepareAsync();
         } catch (Exception e) {
-            MyApplication.Companion.crashReport(e);
+            ReportManager.Companion.getInstance(this).crashReport(e);
             Log.e("BackgroundSoundService", "ERROR");
             if(e.getLocalizedMessage() != null) {
                 Log.e("BackgroundSoundService", e.getLocalizedMessage());
@@ -86,7 +86,7 @@ public class BackgroundSoundService extends Service {
                 player.release();
             }
         } catch (Exception e) {
-            MyApplication.Companion.crashReport(e);
+            ReportManager.Companion.getInstance(this).crashReport(e);
         }
     }
 }

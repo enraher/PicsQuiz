@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="500dp">
+
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btn_flags_quit"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:padding="10dp"
+        android:background="@drawable/btn_trasparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_quit" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgBackgroundDialog"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/img_bg_dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.github.glomadrian.grav.GravView
+        android:id="@+id/ly_include_dots_anim__"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="150dp"
+        android:layout_marginTop="20dp"
+        app:alpha_from="100"
+        app:alpha_max_duration="3000"
+        app:alpha_min_duration="1600"
+        app:alpha_to="255"
+        app:animationGenerators="@array/WallaIcon"
+        app:array_colors="@array/Spectral"
+        app:ball_from_size="2dp"
+        app:ball_to_size="6dp"
+        app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
+        app:gravGenerator="com.github.glomadrian.grav.generator.grav.BallGenerator"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBackgroundDialog"
+        app:layout_constraintEnd_toEndOf="@+id/imgBackgroundDialog"
+        app:layout_constraintStart_toStartOf="@+id/imgBackgroundDialog"
+        app:layout_constraintTop_toTopOf="@+id/imgBackgroundDialog"
+        app:percent_points_array="@array/walla_points_percent_points"
+        app:pointGenerator="com.github.glomadrian.grav.generator.point.PercentPointGenerator"
+        app:shake_direction="vertical"
+        app:shake_max_duration="3500"
+        app:shake_min_duration="1100"
+        app:shake_variance="5dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_title_generic_dialog"
+        style="@style/ParentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:maxWidth="300dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_dialog_image"
+        android:text="@string/more_languages"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/ly_include_dots_anim__"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ly_include_dots_anim__"  />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_top_btm_section_dialog"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ly_include_dots_anim__"
+        android:src="@drawable/info_bar_black" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_flags"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_top_btm_section_dialog"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
